@@ -1,6 +1,4 @@
-import React from 'react';
-
-const LandingPage = () => {
+export const LandingPage = () => {
   return (
     <div className="min-h-screen bg-white p-6">
       {/* Top Navigation */}
@@ -12,7 +10,6 @@ const LandingPage = () => {
           <span className="transform hover:scale-110 transition-transform">✓</span>
         </button>
       </div>
-
       {/* Main Content */}
       <div className="max-w-6xl mx-auto mt-24">
         <div className="bg-gradient-to-br from-[#A0FC90] to-[#77FA60] rounded-3xl p-12 relative overflow-hidden hover:shadow-lg transition-shadow duration-300">
@@ -20,7 +17,6 @@ const LandingPage = () => {
           <div className="inline-block bg-white rounded-full px-4 py-1.5 mb-8 shadow-sm animate-fade-in-up">
             <span className="text-slate-900 text-sm">Join 15,000+ investors.</span>
           </div>
-
           {/* Main Text */}
           <div className="max-w-2xl">
             <h1 className="text-slate-900 text-5xl font-bold mb-6 animate-fade-in-up delay-100">
@@ -28,12 +24,10 @@ const LandingPage = () => {
               <br />
               with no spin
             </h1>
-
             <p className="text-slate-700 text-lg mb-8 animate-fade-in-up delay-200">
               Weekly emails packed full with the latest insights and
               market info to help you stay ahead of the game.
             </p>
-
             {/* Subscribe Form */}
             <div className="flex gap-3 animate-fade-in-up delay-300">
               <input
@@ -46,7 +40,6 @@ const LandingPage = () => {
               </button>
             </div>
           </div>
-
           {/* Decorative Star */}
           <div className="absolute right-12 bottom-12 animate-spin-slow">
             <svg width="60" height="60" viewBox="0 0 60 60" className="text-blue-600">
@@ -61,63 +54,3 @@ const LandingPage = () => {
     </div>
   );
 };
-
-// Add required CSS
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes spin-slow {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes fade-in-up {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .animate-spin-slow {
-    animation: spin-slow 20s linear infinite;
-  }
-  
-  .animate-fade-in {
-    animation: fade-in 0.6s ease-out;
-  }
-  
-  .animate-fade-in-up {
-    animation: fade-in-up 0.6s ease-out forwards;
-  }
-  
-  .delay-100 {
-    animation-delay: 0.1s;
-  }
-  
-  .delay-200 {
-    animation-delay: 0.2s;
-  }
-  
-  .delay-300 {
-    animation-delay: 0.3s;
-  }
-`;
-document.head.appendChild(style);
-
-export default LandingPage;

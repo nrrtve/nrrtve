@@ -8,7 +8,7 @@ const particlesConfig = {
       }
     },
     color: {
-      value: "#A0FC90"  // Matching your green theme
+      value: "#A0FC90"
     },
     shape: {
       type: "circle"
@@ -64,15 +64,8 @@ const particlesConfig = {
   retina_detect: true
 };
 
-// Initialize particles.js
 document.addEventListener("DOMContentLoaded", function() {
   if (typeof particlesJS !== "undefined") {
     particlesJS('particles-js', particlesConfig);
   }
 });
-
-export function initParticles() {
-  if (typeof particlesJS !== "undefined") {
-    particlesJS('particles-js', particlesConfig);
-  }
-}

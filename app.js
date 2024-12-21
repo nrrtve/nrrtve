@@ -1,11 +1,10 @@
-import React from 'react';
-import LandingPage from './components/LandingPage'; // You'll create this next
-import Particles from './particles'; // Your existing particles import
+import { LandingPage } from './components/LandingPage.js';
+import { initParticles } from './particles.js';
 
 function App() {
   return (
     <div>
-      <Particles />
+      <div id="particles-js"></div>
       <LandingPage />
     </div>
   );

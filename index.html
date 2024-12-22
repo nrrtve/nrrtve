@@ -238,7 +238,7 @@
         }
 
         .data-section {
-            background: #000;
+            background: #a0fc90;
             padding: 6rem 1.5rem;
             display: flex;
             justify-content: center;
@@ -252,9 +252,15 @@
 
         .static-text {
             font-size: 4rem;
-            color: #fff;
+            color: #0b1747;
             margin-bottom: 0.5rem;
             font-weight: bold;
+            display: inline-block;
+        }
+
+        .static-text::after {
+            content: ".";
+            color: #ffe700;
         }
 
         .dynamic-text-container {
@@ -266,7 +272,7 @@
 
         .dynamic-text {
             font-size: 4rem;
-            color: #9fff9c;
+            color: #0b1747;
             font-weight: bold;
             opacity: 0;
             position: relative;

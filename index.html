@@ -513,4 +513,111 @@
                         dur="15s"
                         repeatCount="indefinite"/>
                 </circle>
-                <circle cx="50" cy="50" r="35" stroke="#000080" stroke-width="2" fill="none">
+<circle cx="50" cy="50" r="35" stroke="#000080" stroke-width="2" fill="none">
+                    <animate attributeName="r" 
+                            values="35;37;35" 
+                            dur="3s" 
+                            repeatCount="indefinite"/>
+                    <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        from="360 50 50"
+                        to="0 50 50"
+                        dur="10s"
+                        repeatCount="indefinite"/>
+                </circle>
+                <circle cx="50" cy="50" r="25" stroke="#000080" stroke-width="2" fill="none">
+                    <animate attributeName="r" 
+                            values="25;27;25" 
+                            dur="4s" 
+                            repeatCount="indefinite"/>
+                    <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        from="0 50 50"
+                        to="360 50 50"
+                        dur="8s"
+                        repeatCount="indefinite"/>
+                </circle>
+            </svg>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="section-header" data-aos="fade-up">
+            <h2>Why Investors Choose Us</h2>
+            <p>Join thousands of successful investors who use our insights to make better investment decisions</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Data-Driven Analysis</h3>
+                <p>Get real-time market analysis backed by comprehensive data and expert insights</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h3>Strategic Insights</h3>
+                <p>Receive actionable strategies that help you make informed investment decisions</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-icon">
+                    <i class="fas fa-hand-holding-usd"></i>
+                </div>
+                <h3>Financial Planning</h3>
+                <p>Access to tools and resources that assist you in creating a robust financial plan</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="data-section">
+        <div class="text-animation-container">
+            <h2 class="static-text">Africa's Stories.</h2>
+            <div class="dynamic-text-container">
+                <span class="dynamic-text"></span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-icons">
+                <a href="https://x.com/nrrtve" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/nrrtve" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/company/nrrtve" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/nrrrtve" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@nrrrtve" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.youtube.com/@nrrtve" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init();
+        
+        const phrases = ["No Spin", "Told Right", "Honest Perspectives"];
+        let currentIndex = 0;
+
+        function animateText() {
+            const dynamicText = document.querySelector('.dynamic-text');
+            dynamicText.textContent = phrases[currentIndex];
+            dynamicText.classList.add('active');
+            
+            setTimeout(() => {
+                dynamicText.classList.remove('active');
+                currentIndex = (currentIndex + 1) % phrases.length;
+                
+                setTimeout(() => {
+                    animateText();
+                }, 500);
+            }, 3000);
+        }
+
+        // Start the animation when the page loads
+        document.addEventListener('DOMContentLoaded', animateText);
+    </script>
+</body>
+</html>

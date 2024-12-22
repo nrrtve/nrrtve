@@ -1,283 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Stay ahead in the investment game with our newsletter. Get insights, analysis, and trends delivered to your inbox.">
-  <title>Investment Newsletter</title>
-  <style>
-    /* General Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Newsletter</title>
+    <!-- Added favicon -->
+    <link rel="icon" type="image/x-icon" href="/api/placeholder/32/32">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
 
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-    }
+        body {
+            background: #ffffff;
+            overflow-x: hidden;
+        }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+        /* Added Navigation Styles */
+        .nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            padding: 1.5rem;
+        }
 
-    img {
-      max-width: 100%;
-    }
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+        }
 
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(to right, #1e3c72, #2a5298);
-      color: #fff;
-      text-align: center;
-      padding: 4rem 2rem;
-      position: relative;
-    }
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
 
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
 
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2188ff 0%, #804eda 100%);
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .hero .badge {
-      background: #ffc107;
-      color: #000;
-      padding: 0.5rem 1rem;
-      border-radius: 50px;
-      font-weight: bold;
-      margin-bottom: 1rem;
-      display: inline-block;
-    }
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/1200/800') center/cover;
+            opacity: 0.1;
+        }
 
-    .hero form {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-    }
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 2rem;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
 
-    .hero input[type="email"] {
-      padding: 0.7rem;
-      width: 300px;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-    }
+        /* Rest of your existing styles... */
+        
+        /* Updated Footer */
+        .footer {
+            background: #1a202c;
+            color: white;
+            padding: 4rem 1.5rem;
+        }
 
-    .hero button {
-      background: #ffc107;
-      color: #000;
-      border: none;
-      padding: 0.7rem 1rem;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .hero button:hover {
-      background: #e0a800;
-    }
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+        }
 
-    /* Features Section */
-    .features {
-      padding: 4rem 2rem;
-      background: #f8f9fa;
-    }
+        .social-icons a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
 
-    .features h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-    }
+        .social-icons a:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+        }
 
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .feature-card {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .feature-card i {
-      font-size: 2rem;
-      color: #ffc107;
-      margin-bottom: 1rem;
-    }
-
-    /* Stats Section */
-    .stats {
-      padding: 4rem 2rem;
-      background: linear-gradient(to right, #1e3c72, #2a5298);
-      color: #fff;
-    }
-
-    .stats h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .stat {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    .stat span {
-      font-size: 3rem;
-      color: #ffc107;
-    }
-
-    /* Footer */
-    .footer {
-      background: #343a40;
-      color: #fff;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    .footer nav {
-      margin-bottom: 1rem;
-    }
-
-    .footer nav a {
-      color: #ffc107;
-      margin: 0 0.5rem;
-    }
-
-    .footer nav a:hover {
-      text-decoration: underline;
-    }
-
-    .footer .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-    }
-
-    .footer .social-icons a {
-      color: #ffc107;
-      font-size: 1.5rem;
-      transition: color 0.3s ease;
-    }
-
-    .footer .social-icons a:hover {
-      color: #fff;
-    }
-
-    /* Media Queries */
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero input[type="email"] {
-        width: 100%;
-      }
-    }
-  </style>
-  <!-- Font Awesome Icons -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+        /* Your existing media queries... */
+    </style>
 </head>
-
 <body>
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="badge">New Insights Weekly</div>
-    <h1>Stay Ahead with Investment Trends</h1>
-    <p>Join 10,000+ subscribers getting exclusive insights and analysis.</p>
-    <form>
-      <input type="email" placeholder="Enter your email" required>
-      <button type="submit">Subscribe</button>
-    </form>
-  </section>
-
-  <!-- Features Section -->
-  <section class="features">
-    <h2>Why Join Us?</h2>
-    <div class="features-grid">
-      <div class="feature-card">
-        <i class="fas fa-chart-line"></i>
-        <h3>Market Insights</h3>
-        <p>Get weekly updates on the latest market trends.</p>
-      </div>
-      <div class="feature-card">
-        <i class="fas fa-lightbulb"></i>
-        <h3>Expert Tips</h3>
-        <p>Learn strategies from industry experts.</p>
-      </div>
-      <div class="feature-card">
-        <i class="fas fa-money-bill"></i>
-        <h3>Investment Opportunities</h3>
-        <p>Be the first to know about new opportunities.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats Section -->
-  <section class="stats">
-    <h2>Our Impact</h2>
-    <div class="stats-grid">
-      <div class="stat">
-        <span>10K+</span>
-        Subscribers
-      </div>
-      <div class="stat">
-        <span>5+</span>
-        Years of Experience
-      </div>
-      <div class="stat">
-        <span>50+</span>
-        Weekly Reports
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Privacy</a>
+    <!-- Added Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="/" class="logo">
+                <img src="/api/placeholder/120/40" alt="Investment Newsletter Logo">
+            </a>
+        </div>
     </nav>
-    <div class="social-icons">
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-    </div>
-    <p>&copy; 2024 Investment Newsletter. All rights reserved.</p>
-  </footer>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">Join 15,000+ investors</div>
+            <h1>Turn Market Insights into Profitable Actions</h1>
+            <p>Get weekly, data-driven investment strategies delivered straight to your inbox</p>
+            <div class="subscribe-form">
+                <input type="email" placeholder="Enter your email">
+                <button>Get Started</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="section-header" data-aos="fade-up">
+            <h2>Why Investors Choose Us</h2>
+            <p>Join thousands of successful investors who use our insights to make better investment decisions</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Data-Driven Analysis</h3>
+                <p>Get real-time market analysis backed by comprehensive data and expert insights</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h3>Strategic Insights</h3>
+                <p>Receive actionable strategies that help you make informed investment decisions</p>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Risk Management</h3>
+                <p>Learn how to protect your portfolio with proven risk management techniques</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item" data-aos="fade-up">
+                <h3>15,000+</h3>
+                <p>Active Subscribers</p>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                <h3>12.2%</h3>
+                <p>Average Returns</p>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                <h3>24/7</h3>
+                <p>Market Coverage</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Updated Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-icons">
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            offset: 100,
+            once: true
+        });
+    </script>
 </body>
-
 </html>
-

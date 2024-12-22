@@ -172,107 +172,115 @@
             font-size: 1.125rem;
         }
 
-        .features-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
-            padding: 0 1rem;
-        }
+ /* Feature Cards Styles */
+.features-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    padding: 2rem;
+}
 
-        /* Update feature card styles for better contrast with new backgrounds */
-.feature-card[style*="FF7F50"],
+.feature-card {
+    padding: 2.5rem;
+    border-radius: 24px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Updated faded background colors */
+.feature-card[style*="FF7F50"] {
+    background-color: rgba(255, 127, 80, 0.15) !important;
+}
+
 .feature-card[style*="77BFDE"] {
-    color: white;
+    background-color: rgba(119, 191, 222, 0.15) !important;
 }
 
-.feature-card[style*="FF7F50"] h3,
-.feature-card[style*="77BFDE"] h3,
-.feature-card[style*="FF7F50"] p,
-.feature-card[style*="77BFDE"] p {
-    color: white;
+.feature-card[style*="efe7a7"] {
+    background-color: rgba(239, 231, 167, 0.15) !important;
 }
 
-.feature-card[style*="efe7a7"] h3,
-.feature-card[style*="efe7a7"] p {
+/* Update text colors for better contrast */
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
     color: #1a202c;
+    font-weight: 600;
 }
 
-/* Update feature icons for better contrast */
-.feature-card[style*="FF7F50"] .feature-icon,
+.feature-card p {
+    color: #4a5568;
+    line-height: 1.8;
+    font-size: 1.125rem;
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    font-size: 1.75rem;
+    position: relative;
+}
+
+/* Update icon backgrounds for each card */
+.feature-card[style*="FF7F50"] .feature-icon {
+    background: rgba(255, 127, 80, 0.2);
+    color: #FF7F50;
+}
+
 .feature-card[style*="77BFDE"] .feature-icon {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
+    background: rgba(119, 191, 222, 0.2);
+    color: #77BFDE;
 }
 
 .feature-card[style*="efe7a7"] .feature-icon {
-    background: rgba(0, 0, 0, 0.1);
-    color: #1a202c;
+    background: rgba(239, 231, 167, 0.2);
+    color: #9d8f1c;
 }
 
-/* Remove the gradient border on hover for colored cards */
-.feature-card[style*="efe7a7"]::before,
-.feature-card[style*="77BFDE"]::before,
-.feature-card[style*="efe7a7"]::before {
-    display: none;
+/* Hover effects */
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
-        .feature-card:hover::before {
-            transform: scaleX(1);
-        }
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+    
+    .feature-card {
+        padding: 2rem;
+        min-height: 300px;
+    }
+}
 
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: #f0f9ff;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            color: #2188ff;
-            position: relative;
-        }
-
-        .feature-icon i {
-            transition: transform 0.5s ease;
-        }
-        
-        .feature-card:hover .feature-icon i {
-            transform: scale(1.2);
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        
-        .feature-icon::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: inherit;
-            border-radius: 12px;
-            z-index: -1;
-            animation: pulse 2s infinite;
-            opacity: 0.5;
-        }
-
-        .feature-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: #1a202c;
-        }
-
-        .feature-card p {
-            color: #4a5568;
-            line-height: 1.6;
-        }
-
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+    
+    .feature-card {
+        padding: 1.75rem;
+        min-height: auto;
+    }
+}
         .data-section {
             background: #a0fc90;
             padding: 6rem 1.5rem;

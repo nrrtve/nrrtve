@@ -79,17 +79,18 @@
         }
 
         .badge {
-    background: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 9999px;
-    display: block;  
-    margin: 0 auto 2rem auto;  
-    color: #0b1747;
-    font-weight: 500;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    text-align: center;  
-    width: fit-content;  
-}
+            background: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            display: block;  
+            margin: 0 auto 2rem auto;  
+            color: #0b1747;
+            font-weight: 500;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;  
+            width: fit-content;  
+        }
+
         .hero h1 {
             font-size: 5rem;
             margin-bottom: 1.5rem;
@@ -138,13 +139,15 @@
             background: #00e609;
             transform: translateY(-1px);
         }
-   .hero-image svg {
-    width: 100%;
-    height: 100%;
-    fill: #FFE700; /* Use the first color */
-    filter: drop-shadow(0 0 10px rgba(255, 231, 0, 0.5)), 
-            drop-shadow(0 0 20px rgba(255, 245, 151, 0.5));
-}
+
+        .hero-image svg {
+            width: 100%;
+            height: 100%;
+            fill: #FFE700;
+            filter: drop-shadow(0 0 10px rgba(255, 231, 0, 0.5)), 
+                    drop-shadow(0 0 20px rgba(255, 245, 151, 0.5));
+        }
+
         .features-section {
             padding: 6rem 1.5rem;
             background: #f8fafc;
@@ -234,33 +237,73 @@
             line-height: 1.6;
         }
 
-        .stats-section {
-            background: linear-gradient(135deg, #2188ff 0%, #804eda 100%);
-            color: white;
-            padding: 5rem 1.5rem;
+        .data-section {
+            background: #000;
+            padding: 6rem 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+        }
+
+        .text-animation-container {
             text-align: center;
         }
 
-        .stats-grid {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-            padding: 0 1rem;
-        }
-
-        .stat-item h3 {
-            font-size: 3rem;
+        .static-text {
+            font-size: 4rem;
+            color: #fff;
             margin-bottom: 0.5rem;
-            background: linear-gradient(to right, #fff, rgba(255,255,255,0.8));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-weight: bold;
         }
 
-        .stat-item p {
-            font-size: 1.125rem;
-            opacity: 0.9;
+        .dynamic-text-container {
+            height: 4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dynamic-text {
+            font-size: 4rem;
+            color: #9fff9c;
+            font-weight: bold;
+            opacity: 0;
+            position: relative;
+        }
+
+        .dynamic-text.active {
+            animation: slideIn 0.5s ease forwards, 
+                    stayVisible 2s ease forwards,
+                    slideOut 0.5s ease forwards 2.5s;
+        }
+
+        @keyframes slideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes stayVisible {
+            0%, 100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
         }
 
         .footer {
@@ -311,14 +354,14 @@
                 gap: 2rem;
             }
 
-            .stats-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 2rem;
-            }
-
             .hero-image {
                 width: 150px;
                 height: 150px;
+            }
+
+            .static-text,
+            .dynamic-text {
+                font-size: 3.5rem;
             }
         }
 
@@ -373,21 +416,26 @@
                 gap: 1.5rem;
             }
 
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
             .section-header h2 {
                 font-size: 2rem;
             }
 
-            .stat-item h3 {
-                font-size: 2.5rem;
-            }
-
             .feature-card {
                 padding: 1.5rem;
+            }
+
+            .static-text,
+            .dynamic-text {
+                font-size: 2.5rem;
+            }
+            
+            .dynamic-text-container {
+                height: 3rem;
+            }
+            
+            .data-section {
+                padding: 4rem 1rem;
+                min-height: 300px;
             }
         }
 
@@ -407,8 +455,7 @@
                 font-size: 1rem;
             }
 
-            .features-section,
-            .stats-section {
+            .features-section {
                 padding: 3rem 1rem;
             }
 
@@ -418,6 +465,15 @@
 
             .footer {
                 padding: 2rem 1rem;
+            }
+
+            .static-text,
+            .dynamic-text {
+                font-size: 2rem;
+            }
+            
+            .dynamic-text-container {
+                height: 2.5rem;
             }
         }
     </style>
@@ -439,102 +495,22 @@
             </div>
         </div>
         <div class="hero-image">
-    <svg viewBox="0 0 100 100">
-    <!-- Outer circle with pulse animation -->
-    <circle cx="50" cy="50" r="45" stroke="#000080" stroke-width="2" fill="none" opacity="0.5">
-        <animate attributeName="r" 
-                 values="45;47;45" 
-                 dur="2s" 
-                 repeatCount="indefinite"/>
-        <animate attributeName="opacity" 
-                 values="0.5;0.2;0.5" 
-                 dur="2s" 
-                 repeatCount="indefinite"/>
-        <animateTransform
-            attributeName="transform"
-            type="rotate"
-            from="0 50 50"
-            to="360 50 50"
-            dur="15s"
-            repeatCount="indefinite"/>
-    </circle>
-    <!-- Middle circle with reverse rotation -->
-    <circle cx="50" cy="50" r="35" stroke="#000080" stroke-width="2" fill="none">
-        <animate attributeName="r" 
-                 values="35;37;35" 
-                 dur="3s" 
-                 repeatCount="indefinite"/>
-        <animateTransform
-            attributeName="transform"
-            type="rotate"
-            from="360 50 50"
-            to="0 50 50"
-            dur="10s"
-            repeatCount="indefinite"/>
-    </circle>
-    <!-- Inner circle with different timing -->
-    <circle cx="50" cy="50" r="25" stroke="#000080" stroke-width="2" fill="none">
-        <animate attributeName="r" 
-                 values="25;27;25" 
-                 dur="4s" 
-                 repeatCount="indefinite"/>
-        <animateTransform
-            attributeName="transform"
-            type="rotate"
-            from="0 50 50"
-            to="360 50 50"
-            dur="8s"
-            repeatCount="indefinite"/>
-    </circle>
-</svg>
-</div>
-    </section>
-
-    <section class="features-section">
-        <div class="section-header" data-aos="fade-up">
-            <h2>Why Investors Choose Us</h2>
-            <p>Join thousands of successful investors who use our insights to make better investment decisions</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="feature-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <h3>Data-Driven Analysis</h3>
-                <p>Get real-time market analysis backed by comprehensive data and expert insights</p>
-            </div>
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="feature-icon">
-                    <i class="fas fa-bullseye"></i>
-                </div>
-                <h3>Strategic Insights</h3>
-                <p>Receive actionable strategies that help you make informed investment decisions</p>
-            </div>
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="feature-icon">
-                    <i class="fas fa-hand-holding-usd"></i>
-                </div>
-                <h3>Financial Planning</h3>
-                <p>Access to tools and resources that assist you in creating a robust financial plan</p>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="social-icons">
-         <a href="https://x.com/nrrtve" target="_blank"><i class="fab fa-twitter"></i></a>
-<a href="https://www.facebook.com/nrrtve" target="_blank"><i class="fab fa-facebook-f"></i></a>
-<a href="https://www.linkedin.com/company/nrrtve" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-<a href="https://www.instagram.com/nrrrtve" target="_blank"><i class="fab fa-instagram"></i></a>
-<a href="https://www.tiktok.com/@nrrrtve" target="_blank"><i class="fab fa-tiktok"></i></a>
-<a href="https://www.youtube.com/@nrrtve" target="_blank"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        AOS.init();
-    </script>
-</body>
-</html>
+            <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" stroke="#000080" stroke-width="2" fill="none" opacity="0.5">
+                    <animate attributeName="r" 
+                            values="45;47;45" 
+                            dur="2s" 
+                            repeatCount="indefinite"/>
+                    <animate attributeName="opacity" 
+                            values="0.5;0.2;0.5" 
+                            dur="2s" 
+                            repeatCount="indefinite"/>
+                    <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        from="0 50 50"
+                        to="360 50 50"
+                        dur="15s"
+                        repeatCount="indefinite"/>
+                </circle>
+                <circle cx="50" cy="50" r="35" stroke="#000080" stroke-width="2" fill="none">

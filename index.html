@@ -1,26 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NRRTVE</title>
-    <!-- Add React and ReactDOM -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <!-- Add Babel for JSX -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <!-- Add Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Particles.js -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <!-- Your CSS -->
-    <link href="index.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Newsletter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to bottom right, #ccffcc, #e6ffe6);
+            padding: 4rem 2rem;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .badge {
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .subscribe-form {
+            max-width: 480px;
+            margin: 2rem auto;
+            display: flex;
+            background: white;
+            border-radius: 9999px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .subscribe-form input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            outline: none;
+        }
+
+        .subscribe-form button {
+            background: #32CD32;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            cursor: pointer;
+        }
+
+        /* Investment Grid */
+        .investment-grid {
+            max-width: 1200px;
+            margin: 4rem auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .grid-item {
+            padding: 2rem;
+            border-radius: 1.5rem;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .grid-item.green {
+            background: #ccffcc;
+        }
+
+        .grid-item.orange {
+            background: #FFA726;
+            color: white;
+        }
+
+        .grid-item.blue {
+            background: #E3F2FD;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1A1A40;
+            color: white;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            margin-top: 4rem;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+    </style>
 </head>
 <body>
-    <div id="root"></div>
-    <div id="particles-js"></div>
-    <script type="text/babel" src="App.js"></script>
-    <script type="text/babel" src="index.js"></script>
-    <script src="particles.js"></script>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">Join 15,000+ investors</div>
+            <h1 style="font-size: 3rem; margin-bottom: 1rem;">Data-driven narrative with no spin</h1>
+            <p style="color: #666; margin-bottom: 2rem;">Weekly emails packed full with the latest insights and market info</p>
+            <div class="subscribe-form">
+                <input type="email" placeholder="Your email">
+                <button>Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Grid -->
+    <div class="investment-grid">
+        <div class="grid-item green">
+            <h2>Get the jump on Wall Street</h2>
+            <p>Stay ahead of the game with fresh tips every week.</p>
+        </div>
+        <div class="grid-item orange">
+            <h2>Make smarter investments</h2>
+            <p>+12.2% average portfolio growth</p>
+        </div>
+        <div class="grid-item">
+            <h2>Zero cost</h2>
+            <p>Start investing with any budget</p>
+        </div>
+        <div class="grid-item blue">
+            <h2>Sky-Rockit your results</h2>
+            <p>Get the latest in investment tips and trends</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h3 style="margin-bottom: 1rem;">Navigation</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Posts</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">404</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 style="margin-bottom: 1rem;">Social</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="subscribe-form">
+                <input type="email" placeholder="Your email">
+                <button>Subscribe</button>
+            </div>
+        </div>
+        <div class="marquee">
+            <div class="marquee-content">
+                SUBSCRIBE ★ SUBSCRIBE ★ SUBSCRIBE ★ SUBSCRIBE ★ SUBSCRIBE ★ SUBSCRIBE ★ 
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

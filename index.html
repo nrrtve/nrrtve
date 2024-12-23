@@ -20,6 +20,9 @@
             background: #ffffff;
             overflow-x: hidden;
             width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         .hero {
@@ -82,13 +85,13 @@
             background: white;
             padding: 0.75rem 1.5rem;
             border-radius: 9999px;
-            display: block;  
-            margin: 0 auto 2rem auto;  
+            display: block;
+            margin: 0 auto 2rem auto;
             color: #0b1747;
             font-weight: 500;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            text-align: center;  
-            width: fit-content;  
+            text-align: center;
+            width: fit-content;
         }
 
         .hero h1 {
@@ -151,6 +154,7 @@
         .features-section {
             padding: 6rem 1.5rem;
             background: #f8fafc;
+            width: 100%;
         }
 
         .section-header {
@@ -172,257 +176,175 @@
             font-size: 1.125rem;
         }
 
- /* Feature Cards Styles */
-.features-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
-    padding: 2rem;
-}
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            padding: 2rem;
+        }
 
-.feature-card {
-    padding: 2.5rem;
-    border-radius: 24px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    min-height: 350px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
+        .feature-card {
+            padding: 2.5rem;
+            border-radius: 24px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
 
-/* Updated faded background colors */
-.feature-card[style*="FF7F50"] {
-    background-color: rgba(255, 127, 80, 0.15) !important;
-}
+        .feature-card[style*="FF7F50"] {
+            background-color: rgba(255, 127, 80, 0.15) !important;
+        }
 
-.feature-card[style*="77BFDE"] {
-    background-color: rgba(119, 191, 222, 0.15) !important;
-}
+        .feature-card[style*="77BFDE"] {
+            background-color: rgba(119, 191, 222, 0.15) !important;
+        }
 
-.feature-card[style*="efe7a7"] {
-    background-color: rgba(239, 231, 167, 0.15) !important;
-}
+        .feature-card[style*="efe7a7"] {
+            background-color: rgba(239, 231, 167, 0.15) !important;
+        }
 
-/* Update text colors for better contrast */
-.feature-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1.25rem;
-    color: #1a202c;
-    font-weight: 600;
-}
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+            color: #1a202c;
+            font-weight: 600;
+        }
 
-.feature-card p {
-    color: #4a5568;
-    line-height: 1.8;
-    font-size: 1.125rem;
-}
+        .feature-card p {
+            color: #4a5568;
+            line-height: 1.8;
+            font-size: 1.125rem;
+        }
 
-.feature-icon {
-    width: 70px;
-    height: 70px;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 2rem;
-    font-size: 1.75rem;
-    position: relative;
-}
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 1.75rem;
+            position: relative;
+        }
 
-/* Update icon backgrounds for each card */
-.feature-card[style*="FF7F50"] .feature-icon {
-    background: rgba(255, 127, 80, 0.2);
-    color: #FF7F50;
-}
+        .feature-card[style*="FF7F50"] .feature-icon {
+            background: rgba(255, 127, 80, 0.2);
+            color: #FF7F50;
+        }
 
-.feature-card[style*="77BFDE"] .feature-icon {
-    background: rgba(119, 191, 222, 0.2);
-    color: #77BFDE;
-}
+        .feature-card[style*="77BFDE"] .feature-icon {
+            background: rgba(119, 191, 222, 0.2);
+            color: #77BFDE;
+        }
 
-.feature-card[style*="efe7a7"] .feature-icon {
-    background: rgba(239, 231, 167, 0.2);
-    color: #9d8f1c;
-}
+        .feature-card[style*="efe7a7"] .feature-icon {
+            background: rgba(239, 231, 167, 0.2);
+            color: #9d8f1c;
+        }
 
-/* Hover effects */
-.feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-}
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
 
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-    .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-        padding: 1.5rem;
-    }
-    
-    .feature-card {
-        padding: 2rem;
-        min-height: 300px;
-    }
+        .data-section {
+            padding: 4rem 2rem;
+            background: #ffffff;
+            text-align: center;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
 
-@media (max-width: 768px) {
-    .features-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 1rem;
-    }
-    
-    .feature-card {
-        padding: 1.75rem;
-        min-height: auto;
-    }
-       /* Data Section Styles */
-.data-section {
-    padding: 4rem 2rem;
-    background: #ffffff;
-    text-align: center;
-    min-height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        .text-animation-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            width: 100%;
+        }
 
-.text-animation-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-}
+        .static-text {
+            font-size: 4rem;
+            color: #1a2b3b;
+            font-weight: 700;
+            margin: 0;
+        }
 
-.static-text {
-    font-size: 4rem;
-    color: #1a2b3b;
-    font-weight: 700;
-    margin: 0;
-}
+        .dynamic-text-container {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.dynamic-text-container {
-    height: 60px; /* Fixed height to prevent layout shifts */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        .dynamic-text {
+            font-size: 3rem;
+            color: #00ff0a;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
 
-.dynamic-text {
-    font-size: 3rem;
-    color: #00ff0a;
-    font-weight: 600;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.5s ease;
-}
+        .dynamic-text.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-.dynamic-text.active {
-    opacity: 1;
-    transform: translateY(0);
-}
+        .footer {
+            background: #1a202c;
+            color: white;
+            padding: 3rem 1.5rem;
+            width: 100%;
+            margin-top: auto;
+        }
 
-/* Footer Styles */
-.footer {
-    background: #1a202c;
-    color: white;
-    padding: 3rem 1.5rem;
-}
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        .social-icons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+        }
 
-.social-icons {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    align-items: center;
-}
+        .social-icons a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
 
-.social-icons a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.5rem;
-    opacity: 0.8;
-    transition: all 0.3s ease;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-}
+        .social-icons a:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+        }
 
-.social-icons a:hover {
-    opacity: 1;
-    transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.2);
-}
-
-/* Responsive Styles */
-@media (max-width: 1024px) {
-    .static-text {
-        font-size: 3.5rem;
-    }
-
-    .dynamic-text {
-        font-size: 2.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .data-section {
-        padding: 3rem 1rem;
-        min-height: 250px;
-    }
-
-    .static-text {
-        font-size: 2.5rem;
-    }
-
-    .dynamic-text {
-        font-size: 2rem;
-    }
-
-    .social-icons {
-        gap: 1.5rem;
-    }
-
-    .social-icons a {
-        width: 40px;
-        height: 40px;
-        font-size: 1.25rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .static-text {
-        font-size: 2rem;
-    }
-
-    .dynamic-text {
-        font-size: 1.5rem;
-    }
-
-    .social-icons {
-        gap: 1rem;
-    }
-
-    .social-icons a {
-        width: 35px;
-        height: 35px;
-        font-size: 1rem;
-    }
-        /* Tablet Responsive Styles (768px - 1024px) */
         @media (max-width: 1024px) {
             .hero {
                 margin: 0.5rem;
@@ -443,13 +365,15 @@
                 height: 150px;
             }
 
-            .static-text,
-            .dynamic-text {
+            .static-text {
                 font-size: 3.5rem;
+            }
+
+            .dynamic-text {
+                font-size: 2.5rem;
             }
         }
 
-        /* Mobile Responsive Styles (< 768px) */
         @media (max-width: 768px) {
             .hero {
                 margin: 0;
@@ -508,25 +432,28 @@
                 padding: 1.5rem;
             }
 
-            .static-text,
-            .dynamic-text {
+            .static-text {
                 font-size: 2.5rem;
             }
-            
-            .dynamic-text-container {
-                height: 3rem;
+
+            .dynamic-text {
+                font-size: 2rem;
             }
-            
-            .data-section {
-                padding: 4rem 1rem;
-                min-height: 300px;
+
+            .social-icons {
+                gap: 1.5rem;
+            }
+
+            .social-icons a {
+                width: 40px;
+                height: 40px;
+                font-size: 1.25rem;
             }
         }
 
-        /* Small Mobile Styles (< 480px) */
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
 
             .logo-text {
@@ -551,13 +478,22 @@
                 padding: 2rem 1rem;
             }
 
-            .static-text,
-            .dynamic-text {
+            .static-text {
                 font-size: 2rem;
             }
-            
-            .dynamic-text-container {
-                height: 2.5rem;
+
+            .dynamic-text {
+                font-size: 1.5rem;
+            }
+
+            .social-icons {
+                gap: 1rem;
+            }
+
+            .social-icons a {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
             }
         }
     </style>
@@ -579,7 +515,8 @@
             </div>
         </div>
 
-<div class="hero-image">
+    <!-- Continuing from the hero-image svg -->
+        <div class="hero-image">
             <svg viewBox="0 0 100 100">
                 <circle cx="50" cy="50" r="45" stroke="#000080" stroke-width="2" fill="none" opacity="0.5">
                     <animate attributeName="r" 
@@ -629,34 +566,34 @@
     </section>
 
     <section class="features-section">
-    <div class="section-header" data-aos="fade-up">
-        <h2>Why You Should Subscribe</h2>
-        <p>Join thousands of readers and gain a deeper understanding of the trends shaping Africa's tech, business and culture, delivered to you weekly.</p>
-    </div>
-    <div class="features-grid">
-        <div class="feature-card" style="background-color: #FF7F50;" data-aos="fade-up" data-aos-delay="100">
-            <div class="feature-icon">
-                <i class="fas fa-lightbulb"></i>
-            </div>
-            <h3>Fresh Perspectives</h3>
-            <p>We amplify voices that are often overlooked, sharing diverse stories that matter. Every perspective counts, and we make sure it's heard.</p>
+        <div class="section-header" data-aos="fade-up">
+            <h2>Why You Should Subscribe</h2>
+            <p>Join thousands of readers and gain a deeper understanding of the trends shaping Africa's tech, business and culture, delivered to you weekly.</p>
         </div>
-        <div class="feature-card" style="background-color: #77BFDE;" data-aos="fade-up" data-aos-delay="200">
-            <div class="feature-icon">
-                <i class="fa-globe-africa"></i>
+        <div class="features-grid">
+            <div class="feature-card" style="background-color: #FF7F50;" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Fresh Perspectives</h3>
+                <p>We amplify voices that are often overlooked, sharing diverse stories that matter. Every perspective counts, and we make sure it's heard.</p>
             </div>
-            <h3>Context-Driven Stories</h3>
-            <p>We tell stories rooted in culture and respect, focusing on accuracy while celebrating local knowledge and avoiding stereotypes.</p>
-        </div>
-        <div class="feature-card" style="background-color: #efe7a7;" data-aos="fade-up" data-aos-delay="300">
-            <div class="feature-icon">
-                <i class="fas fa-check-circle"></i>
+            <div class="feature-card" style="background-color: #77BFDE;" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-icon">
+                    <i class="fas fa-globe-africa"></i>
+                </div>
+                <h3>Context-Driven Stories</h3>
+                <p>We tell stories rooted in culture and respect, focusing on accuracy while celebrating local knowledge and avoiding stereotypes.</p>
             </div>
-            <h3>Thoughtful & Transparent</h3>
-            <p>We take the time to deliver meaningful stories, backed by careful research and honest data, ensuring our insights are creative and reliable.</p>
+            <div class="feature-card" style="background-color: #efe7a7;" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Thoughtful & Transparent</h3>
+                <p>We take the time to deliver meaningful stories, backed by careful research and honest data, ensuring our insights are creative and reliable.</p>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <section class="data-section">
         <div class="text-animation-container">
@@ -701,7 +638,6 @@
             }, 3000);
         }
 
-        // Start the animation when the page loads
         document.addEventListener('DOMContentLoaded', animateText);
     </script>
 </body>

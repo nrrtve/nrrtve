@@ -324,7 +324,7 @@
 
         .dynamic-text {
             font-size: 3.5rem;
-            color: #333333;
+            color: #FAF7E4;
             font-weight: 600;
             opacity: 0;
             transform: translateY(20px);
@@ -672,7 +672,6 @@
             }, 3000);
         }
 
-        // Add bubble animation
         function createBubbles() {
             const section = document.getElementById('features-section');
             const colors = ['#39A663', '#333333'];
@@ -681,7 +680,6 @@
                 const bubble = document.createElement('div');
                 bubble.className = 'bubble';
                 
-                // Random properties
                 const size = Math.random() * 60 + 20;
                 const color = colors[Math.floor(Math.random() * colors.length)];
                 

@@ -65,51 +65,121 @@
             }
         }
 
-        .feature-card {
+        .features-section {
             position: relative;
             overflow: hidden;
+            padding: 6rem 1.5rem;
+            background: #FAF6ED;
+            width: 100%;
         }
 
-        .bubble {
+        .features-section::before {
+            content: '';
             position: absolute;
-            border-radius: 50%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
             pointer-events: none;
         }
 
-        .feature-card:nth-child(1) .bubble {
-            background-color: #333333;
-        }
-
-        .feature-card:nth-child(2) .bubble {
+        .features-section .bubble {
+            position: absolute;
+            border-radius: 50%;
             background-color: #39A663;
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 1;
         }
 
-        .feature-card:nth-child(3) .bubble {
-            background-color: #333333;
-        }
-
-        .bubble:nth-child(1) {
+        .features-section .bubble:nth-child(1) {
             width: 50px;
             height: 50px;
-            bottom: -25px;
+            top: 10%;
             left: 10%;
             animation: bubble-animation-1 15s infinite;
         }
 
-        .bubble:nth-child(2) {
+        .features-section .bubble:nth-child(2) {
             width: 30px;
             height: 30px;
-            bottom: -15px;
+            top: 30%;
             left: 40%;
             animation: bubble-animation-2 12s infinite;
         }
 
-        .bubble:nth-child(3) {
+        .features-section .bubble:nth-child(3) {
             width: 40px;
             height: 40px;
-            bottom: -20px;
+            top: 50%;
             right: 10%;
             animation: bubble-animation-3 18s infinite;
+        }
+
+        .features-section .bubble:nth-child(4) {
+            width: 60px;
+            height: 60px;
+            top: 70%;
+            left: 20%;
+            animation: bubble-animation-1 20s infinite;
+        }
+
+        .features-section .bubble:nth-child(5) {
+            width: 20px;
+            height: 20px;
+            top: 80%;
+            right: 30%;
+            animation: bubble-animation-2 14s infinite;
+        }
+
+        .feature-card {
+            position: relative;
+            overflow: hidden;
+            padding: 2.5rem;
+            border-radius: 24px;
+            transition: all 0.3s ease;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            z-index: 2;
+        }
+
+        .feature-card[style*="39A663"] {
+            background-color: #39A663 !important;
+        }
+
+        .feature-card[style*="39A663"] .feature-icon {
+            color: #FAF6ED !important;
+        }
+
+        .feature-card[style*="39A663"] h3,
+        .feature-card[style*="39A663"] p {
+            color: #FAF6ED !important;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+            font-weight: 600;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 1.75rem;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
         body {
@@ -249,12 +319,6 @@
                     drop-shadow(0 0 20px rgba(255, 245, 151, 0.5));
         }
 
-        .features-section {
-            padding: 6rem 1.5rem;
-            background: #FAF6ED;
-            width: 100%;
-        }
-
         .section-header {
             text-align: center;
             max-width: 700px;
@@ -283,56 +347,6 @@
             padding: 2rem;
         }
 
-        .feature-card {
-            padding: 2.5rem;
-            border-radius: 24px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            min-height: 350px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-
-        .feature-card[style*="39A663"] {
-            background-color: #39A663 !important;
-        }
-
-        .feature-card[style*="39A663"] .feature-icon {
-            color: #FAF6ED !important;
-        }
-
-        .feature-card[style*="39A663"] h3,
-        .feature-card[style*="39A663"] p {
-            color: #FAF6ED !important;
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.25rem;
-            font-weight: 600;
-        }
-
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 2rem;
-            font-size: 1.75rem;
-            position: relative;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        }
-
-        /* Rest of your existing styles remain the same... */
-        
         .data-section {
             padding: 4rem 2rem;
             background: #38A763;
@@ -425,20 +439,46 @@
         }
 
         @media (max-width: 1024px) {
-            /* Your existing media queries remain the same... */
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
-            /* Your existing media queries remain the same... */
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-card {
+                min-height: auto;
+            }
         }
 
         @media (max-width: 480px) {
-            /* Your existing media queries remain the same... */
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .subscribe-form {
+                flex-direction: column;
+            }
+
+            .subscribe-form input {
+                width: 100%;
+            }
+
+            .subscribe-form a {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Your existing HTML structure remains the same until the features section -->
     <section class="hero">
         <a href="/" class="logo">
             <div class="logo-icon">N</div>
@@ -462,25 +502,24 @@
     </section>
 
     <section class="features-section">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
         <div class="section-header" data-aos="fade-up">
             <h2>Why You Should Subscribe</h2>
             <p>Join thousands of readers and gain a deeper understanding of the trends shaping Africa's tech, business and culture, delivered to you weekly.</p>
         </div>
         <div class="features-grid">
             <div class="feature-card" style="background-color: #39A663;" data-aos="fade-up" data-aos-delay="100">
-                <div class="bubble"></div>
-                <div class="bubble"></div>
-                <div class="bubble"></div>
                 <div class="feature-icon">
                     <i class="fas fa-lightbulb"></i>
                 </div>
-<h3>Fresh Perspectives</h3>
+                <h3>Fresh Perspectives</h3>
                 <p>We amplify voices that are often overlooked, sharing diverse stories that matter. Every perspective counts, and we make sure it's heard.</p>
             </div>
             <div class="feature-card" style="background-color: #333333;" data-aos="fade-up" data-aos-delay="200">
-                <div class="bubble"></div>
-                <div class="bubble"></div>
-                <div class="bubble"></div>
                 <div class="feature-icon" style="color: #FAF7E4;">
                     <i class="fas fa-globe-africa"></i>
                 </div>
@@ -488,9 +527,6 @@
                 <p>We tell stories rooted in culture and respect, focusing on accuracy while celebrating local knowledge and avoiding stereotypes.</p>
             </div>
             <div class="feature-card" style="background-color: #efe7a7;" data-aos="fade-up" data-aos-delay="300">
-                <div class="bubble"></div>
-                <div class="bubble"></div>
-                <div class="bubble"></div>
                 <div class="feature-icon" style="color: #333333;">
                     <i class="fas fa-check-circle"></i>
                 </div>
@@ -514,37 +550,4 @@
             <div class="social-icons">
                 <a href="https://x.com/nrrtve" target="_blank"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.facebook.com/nrrtve" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.linkedin.com/company/nrrtve" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://www.instagram.com/nrrrtve" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@nrrtve" target="_blank"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.youtube.com/@nrrtve" target="_blank"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        AOS.init();
-        
-        const phrases = ["No Spin", "Told Right", "Honest Perspectives"];
-        let currentIndex = 0;
-
-        function animateText() {
-            const dynamicText = document.querySelector('.dynamic-text');
-            dynamicText.textContent = phrases[currentIndex];
-            dynamicText.classList.add('active');
-            
-            setTimeout(() => {
-                dynamicText.classList.remove('active');
-                currentIndex = (currentIndex + 1) % phrases.length;
-                
-                setTimeout(() => {
-                    animateText();
-                }, 500);
-            }, 3000);
-        }
-
-        document.addEventListener('DOMContentLoaded', animateText);
-    </script>
-</body>
-</html>
-
+                <a href="https://www.linked

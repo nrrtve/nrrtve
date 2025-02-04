@@ -23,165 +23,6 @@
             font-family: system-ui, -apple-system, sans-serif;
         }
 
-        @keyframes bubble-animation-1 {
-            0% {
-                transform: translate(0, 0);
-                opacity: 0.1;
-            }
-            50% {
-                opacity: 0.3;
-            }
-            100% {
-                transform: translate(100px, -100px);
-                opacity: 0.1;
-            }
-        }
-
-        @keyframes bubble-animation-2 {
-            0% {
-                transform: translate(0, 0);
-                opacity: 0.1;
-            }
-            50% {
-                opacity: 0.2;
-            }
-            100% {
-                transform: translate(-150px, -80px);
-                opacity: 0.1;
-            }
-        }
-
-        @keyframes bubble-animation-3 {
-            0% {
-                transform: translate(0, 0);
-                opacity: 0.1;
-            }
-            50% {
-                opacity: 0.25;
-            }
-            100% {
-                transform: translate(80px, -120px);
-                opacity: 0.1;
-            }
-        }
-
-        .features-section {
-            position: relative;
-            overflow: hidden;
-            padding: 6rem 1.5rem;
-            background: #FAF6ED;
-            width: 100%;
-        }
-
-        .features-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .features-section .bubble {
-            position: absolute;
-            border-radius: 50%;
-            background-color: #39A663;
-            opacity: 0.1;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .features-section .bubble:nth-child(1) {
-            width: 50px;
-            height: 50px;
-            top: 10%;
-            left: 10%;
-            animation: bubble-animation-1 15s infinite;
-        }
-
-        .features-section .bubble:nth-child(2) {
-            width: 30px;
-            height: 30px;
-            top: 30%;
-            left: 40%;
-            animation: bubble-animation-2 12s infinite;
-        }
-
-        .features-section .bubble:nth-child(3) {
-            width: 40px;
-            height: 40px;
-            top: 50%;
-            right: 10%;
-            animation: bubble-animation-3 18s infinite;
-        }
-
-        .features-section .bubble:nth-child(4) {
-            width: 60px;
-            height: 60px;
-            top: 70%;
-            left: 20%;
-            animation: bubble-animation-1 20s infinite;
-        }
-
-        .features-section .bubble:nth-child(5) {
-            width: 20px;
-            height: 20px;
-            top: 80%;
-            right: 30%;
-            animation: bubble-animation-2 14s infinite;
-        }
-
-        .feature-card {
-            position: relative;
-            overflow: hidden;
-            padding: 2.5rem;
-            border-radius: 24px;
-            transition: all 0.3s ease;
-            min-height: 350px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            z-index: 2;
-        }
-
-        .feature-card[style*="39A663"] {
-            background-color: #39A663 !important;
-        }
-
-        .feature-card[style*="39A663"] .feature-icon {
-            color: #FAF6ED !important;
-        }
-
-        .feature-card[style*="39A663"] h3,
-        .feature-card[style*="39A663"] p {
-            color: #FAF6ED !important;
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.25rem;
-            font-weight: 600;
-        }
-
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 2rem;
-            font-size: 1.75rem;
-            position: relative;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        }
-
         body {
             background: #d9fce9;
             overflow-x: hidden;
@@ -319,11 +160,38 @@
                     drop-shadow(0 0 20px rgba(255, 245, 151, 0.5));
         }
 
+        .features-section {
+            padding: 6rem 1.5rem;
+            background: #FAF6ED;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            pointer-events: none;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+            }
+        }
+
         .section-header {
             text-align: center;
             max-width: 700px;
             margin: 0 auto 4rem auto;
             padding: 0 1rem;
+            position: relative;
+            z-index: 2;
         }
 
         .section-header h2 {
@@ -345,6 +213,77 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 2.5rem;
             padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-card {
+            padding: 2.5rem;
+            border-radius: 24px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .feature-card[style*="FAF7E4"] {
+            background-color: #333333 !important;
+        }
+
+        .feature-card[style*="77BFDE"] {
+            background-color: #333333 !important;
+        }
+
+        .feature-card[style*="FAF7E4"] {
+            background-color: #333333 !important;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+            color: #1a202c;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: #FAF7E4;
+            line-height: 1.8;
+            font-size: 1.125rem;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 1.75rem;
+            position: relative;
+        }
+
+        .feature-card[style*="FAF7E4"] .feature-icon {
+            background: #333333;
+            color: #333333;
+        }
+
+        .feature-card[style*="77BFDE"] .feature-icon {
+            background: #333333;
+            color: #333333;
+        }
+
+        .feature-card[style*="FAF7E4"] .feature-icon {
+            background: #333333;
+            color: #FAF7E4;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
         .data-section {
@@ -439,22 +378,109 @@
         }
 
         @media (max-width: 1024px) {
+            .hero {
+                margin: 0.5rem;
+                padding: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
             .features-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .hero-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .static-text {
+                font-size: 3.5rem;
+            }
+
+            .dynamic-text {
+                font-size: 2.5rem;
             }
         }
 
         @media (max-width: 768px) {
+            .hero {
+                margin: 0;
+                border-radius: 0;
+                padding: 1rem;
+                min-height: 80vh;
+            }
+
+            .logo {
+                top: 1rem;
+                left: 1rem;
+            }
+
+            .hero-content {
+                padding: 1rem;
+                margin-top: 3rem;
+            }
+
             .hero h1 {
                 font-size: 3rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero p {
+                font-size: 1.125rem;
+            }
+
+            .badge {
+                padding: 0.5rem 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .subscribe-form {
+                flex-direction: column;
+            }
+
+            .subscribe-form input,
+            .subscribe-form a {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-image {
+                display: none;
             }
 
             .features-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
             }
 
             .feature-card {
-                min-height: auto;
+                padding: 1.5rem;
+            }
+
+            .static-text {
+                font-size: 2.5rem;
+            }
+
+            .dynamic-text {
+                font-size: 2rem;
+            }
+
+            .social-icons {
+                gap: 1.5rem;
+            }
+
+            .social-icons a {
+                width: 40px;
+                height: 40px;
+                font-size: 1.25rem;
             }
         }
 
@@ -463,17 +489,44 @@
                 font-size: 2.5rem;
             }
 
-            .subscribe-form {
-                flex-direction: column;
+            .logo-text {
+                font-size: 1.25rem;
             }
 
-            .subscribe-form input {
-                width: 100%;
+            .logo-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 1rem;
             }
 
-            .subscribe-form a {
-                width: 100%;
-                text-align: center;
+            .features-section {
+                padding: 3rem 1rem;
+            }
+
+            .section-header {
+                margin-bottom: 2rem;
+            }
+
+            .footer {
+                padding: 2rem 1rem;
+            }
+
+            .static-text {
+                font-size: 2rem;
+            }
+
+            .dynamic-text {
+                font-size: 1.5rem;
+            }
+
+            .social-icons {
+                gap: 1rem;
+            }
+
+            .social-icons a {
+                width: 35px
+                height: 35px;
+                font-size: 1rem;
             }
         }
     </style>
@@ -496,28 +549,65 @@
         </div>
         <div class="hero-image">
             <svg viewBox="0 0 100 100">
-                <!-- Your existing SVG content -->
+                <circle cx="50" cy="50" r="45" stroke="#000080" stroke-width="2" fill="none" opacity="0.5">
+                    <animate attributeName="r" 
+                            values="45;47;45" 
+                            dur="2s" 
+                            repeatCount="indefinite"/>
+                    <animate attributeName="opacity" 
+                            values="0.5;0.2;0.5" 
+                            dur="2s" 
+                            repeatCount="indefinite"/>
+                    <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        from="0 50 50"
+                        to="360 50 50"
+                        dur="15s"
+                        repeatCount="indefinite"/>
+                </circle>
+                <circle cx="50" cy="50" r="35" stroke="#000080" stroke-width="2" fill="none">
+                    <animate attributeName="r" 
+                            values="35;37;35" 
+                            dur="3s" 
+                            repeatCount="indefinite"/>
+                    <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        from="360 50 50"
+                        to="0 50 50"
+                        dur="10s"
+                        repeatCount="indefinite"/>
+                </circle>
+                <circle cx="50" cy="50" r="25" stroke="#000080" stroke-width="2" fill="none">
+                    <animate attributeName="r" 
+                            values="25;27;25" 
+                            dur="4s" 
+                            repeatCount="indefinite"/>
+                    <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        from="0 50 50"
+                        to="360 50 50"
+                        dur="8s"
+                        repeatCount="indefinite"/>
+                </circle>
             </svg>
         </div>
     </section>
 
-    <section class="features-section">
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
+    <section class="features-section" id="features-section">
         <div class="section-header" data-aos="fade-up">
             <h2>Why You Should Subscribe</h2>
             <p>Join thousands of readers and gain a deeper understanding of the trends shaping Africa's tech, business and culture, delivered to you weekly.</p>
         </div>
         <div class="features-grid">
             <div class="feature-card" style="background-color: #39A663;" data-aos="fade-up" data-aos-delay="100">
-                <div class="feature-icon">
+                <div class="feature-icon" style="color: #FAF6ED;">
                     <i class="fas fa-lightbulb"></i>
                 </div>
-                <h3>Fresh Perspectives</h3>
-                <p>We amplify voices that are often overlooked, sharing diverse stories that matter. Every perspective counts, and we make sure it's heard.</p>
+                <h3 style="color: #FAF6ED;">Fresh Perspectives</h3>
+                <p style="color: #FAF6ED;">We amplify voices that are often overlooked, sharing diverse stories that matter. Every perspective counts, and we make sure it's heard.</p>
             </div>
             <div class="feature-card" style="background-color: #333333;" data-aos="fade-up" data-aos-delay="200">
                 <div class="feature-icon" style="color: #FAF7E4;">
@@ -550,4 +640,63 @@
             <div class="social-icons">
                 <a href="https://x.com/nrrtve" target="_blank"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.facebook.com/nrrtve" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.linked
+                <a href="https://www.linkedin.com/company/nrrtve" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/nrrrtve" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@nrrtve" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.youtube.com/@nrrtve" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init();
+        
+        const phrases = ["No Spin", "Told Right", "Honest Perspectives"];
+        let currentIndex = 0;
+
+        function animateText() {
+            const dynamicText = document.querySelector('.dynamic-text');
+            dynamicText.textContent = phrases[currentIndex];
+            dynamicText.classList.add('active');
+            
+            setTimeout(() => {
+                dynamicText.classList.remove('active');
+                currentIndex = (currentIndex + 1) % phrases.length;
+                
+                setTimeout(() => {
+                    animateText();
+                }, 500);
+            }, 3000);
+        }
+
+        // Add bubble animation
+        function createBubbles() {
+            const section = document.getElementById('features-section');
+            const colors = ['#39A663', '#333333'];
+            
+            for (let i = 0; i < 15; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                
+                // Random properties
+                const size = Math.random() * 60 + 20;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.background = color;
+                bubble.style.left = `${Math.random() * 100}%`;
+                bubble.style.animationDuration = `${Math.random() * 20 + 10}s`;
+                bubble.style.animationDelay = `${Math.random() * 5}s`;
+                
+                section.appendChild(bubble);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            animateText();
+            createBubbles();
+        });
+    </script>
+</body>
+</html>

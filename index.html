@@ -11,9 +11,8 @@
         gtag('js', new Date());
         gtag('config', 'G-R1PMP9646W');
     </script>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%2339A663'/><text x='50' y='65' font-size='50' text-anchor='middle' dominant-baseline='middle' fill='%23FAF7E4' font-family='Arial' font-weight='bold'>N</text></svg>" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js">
-    </script>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%2339A663'/%3E%3Ctext x='50' y='65' font-size='50' text-anchor='middle' dominant-baseline='middle' fill='%23FAF7E4' font-family='Arial' font-weight='bold'%3EN%3C/text%3E%3C/svg%3E">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <style>
@@ -153,6 +152,15 @@
             transform: translateY(-1px);
         }
 
+        .hero-image {
+            position: absolute;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 200px;
+            height: 200px;
+        }
+
         .hero-image svg {
             width: 100%;
             height: 100%;
@@ -167,23 +175,6 @@
             width: 100%;
             position: relative;
             overflow: hidden;
-        }
-
-        .bubble {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.1;
-            pointer-events: none;
-            animation: float 20s linear infinite;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) translateX(0);
-            }
-            100% {
-                transform: translateY(-100vh) translateX(100px);
-            }
         }
 
         .section-header {
@@ -230,27 +221,26 @@
             justify-content: flex-start;
         }
 
-        .feature-card[style*="FAF7E4"] {
-            background-color: #333333 !important;
-        }
-
-        .feature-card[style*="77BFDE"] {
-            background-color: #333333 !important;
-        }
-
-        .feature-card[style*="FAF7E4"] {
-            background-color: #333333 !important;
-        }
-
         .feature-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1.25rem;
-            color: #1a202c;
-            font-weight: 600;
+            position: relative;
+            padding-bottom: 1.25rem;
+        }
+
+        .feature-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: currentColor;
+            opacity: 0.3;
+            box-shadow: 0 0 8px currentColor;
         }
 
         .feature-card p {
-            color: #FAF7E4;
             line-height: 1.8;
             font-size: 1.125rem;
         }
@@ -267,24 +257,26 @@
             position: relative;
         }
 
-        .feature-card[style*="FAF7E4"] .feature-icon {
-            background: #333333;
-            color: #333333;
-        }
-
-        .feature-card[style*="77BFDE"] .feature-icon {
-            background: #333333;
-            color: #333333;
-        }
-
-        .feature-card[style*="FAF7E4"] .feature-icon {
-            background: #333333;
-            color: #FAF7E4;
-        }
-
         .feature-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            pointer-events: none;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+            }
         }
 
         .data-section {
@@ -525,7 +517,7 @@
             }
 
             .social-icons a {
-                width: 35px
+                width: 35px;
                 height: 35px;
                 font-size: 1rem;
             }
@@ -533,7 +525,7 @@
     </style>
 </head>
 <body>
-    <section class="hero">
+<section class="hero">
         <a href="/" class="logo">
             <div class="logo-icon">N</div>
             <span class="logo-text">nrrtve</span>
@@ -608,21 +600,21 @@
                     <i class="fas fa-lightbulb"></i>
                 </div>
                 <h3 style="color: #FAF6ED;">Unfiltered. Unheard. Unstoppable.</h3>
-                <p style="color: #FAF6ED;">We’re here for the voices that don’t make the front page but should. From street corners to boardrooms, we shine a light where others don’t. If it matters, we’re telling it—loud and clear.</p>
+                <p style="color: #FAF6ED;">We're here for the voices that don't make the front page but should. From street corners to boardrooms, we shine a light where others don't. If it matters, we're telling it—loud and clear.</p>
             </div>
             <div class="feature-card" style="background-color: #333333;" data-aos="fade-up" data-aos-delay="200">
                 <div class="feature-icon" style="color: #FAF7E4;">
                     <i class="fas fa-globe-africa"></i>
                 </div>
                 <h3 style="color: #FAF7E4;">No Clickbait. No Stereotypes. Just Real Stories.</h3>
-                <p>We keep it real—every story is rooted in culture, history, and lived experience. No lazy reporting, no outsider gaze. Just authentic narratives straight from the source.</p>
+                <p style="color: #FAF7E4;">We keep it real—every story is rooted in culture, history, and lived experience. No lazy reporting, no outsider gaze. Just authentic narratives straight from the source.</p>
             </div>
             <div class="feature-card" style="background-color: #efe7a7;" data-aos="fade-up" data-aos-delay="300">
                 <div class="feature-icon" style="color: #333333;">
                     <i class="fas fa-check-circle"></i>
                 </div>
                 <h3 style="color: #333333;">Stories You Can Trust, Receipts Included.</h3>
-                <p style="color: #333333;">We don’t just throw opinions around—we back it up. Every insight is carefully researched, every fact double-checked. No shortcuts, no spin, just real stories with real impact.</p>
+                <p style="color: #333333;">We don't just throw opinions around—we back it up. Every insight is carefully researched, every fact double-checked. No shortcuts, no spin, just real stories with real impact.</p>
             </div>
         </div>
     </section>

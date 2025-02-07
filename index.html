@@ -119,13 +119,93 @@
         }
 
         .features-section {
-            padding: 6rem 1.5rem;
-            background: #FAF6ED;
-            width: 100%;
-            position: relative;
-            overflow: hidden;
+        padding: 6rem 1.5rem;
+        background: #FAF6ED;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
         }
+        @keyframes float {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    33% {
+        transform: translateY(-50px) translateX(20px);
+    }
+    66% {
+        transform: translateY(-20px) translateX(-20px);
+    }
+    100% {
+        transform: translateY(0) translateX(0);
+    }
+}
 
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.bubble-1 {
+    width: 150px;
+    height: 150px;
+    background: #333333;
+    top: 10%;
+    left: 5%;
+    animation: float 15s ease-in-out infinite;
+}
+
+.bubble-2 {
+    width: 100px;
+    height: 100px;
+    background: #FFE700;
+    top: 60%;
+    right: 10%;
+    animation: float 12s ease-in-out infinite;
+    animation-delay: -2s;
+}
+
+.bubble-3 {
+    width: 80px;
+    height: 80px;
+    background: #39A663;
+    bottom: 20%;
+    left: 15%;
+    animation: float 18s ease-in-out infinite;
+    animation-delay: -5s;
+}
+
+.bubble-4 {
+    width: 120px;
+    height: 120px;
+    background: #333333;
+    top: 30%;
+    right: 20%;
+    animation: float 20s ease-in-out infinite;
+    animation-delay: -8s;
+}
+
+.bubble-5 {
+    width: 70px;
+    height: 70px;
+    background: #FFE700;
+    bottom: 30%;
+    right: 30%;
+    animation: float 16s ease-in-out infinite;
+    animation-delay: -3s;
+}
+
+.bubble-6 {
+    width: 90px;
+    height: 90px;
+    background: #39A663;
+    top: 40%;
+    left: 25%;
+    animation: float 14s ease-in-out infinite;
+    animation-delay: -7s;
+}
         .section-header {
             text-align: center;
             max-width: 700px;
@@ -476,6 +556,13 @@
     </section>
 
     <section class="features-section" id="features-section">
+        <div class="bubble bubble-1"></div>
+        <div class="bubble bubble-2"></div>
+        <div class="bubble bubble-3"></div>
+        <div class="bubble bubble-4"></div>
+        <div class="bubble bubble-5"></div>
+        <div class="bubble bubble-6"></div>
+        
         <div class="section-header" data-aos="fade-up">
             <h2>Why You Should Subscribe</h2>
             <p>Join thousands of readers and gain a deeper understanding of the trends shaping Africa's tech, business and culture, delivered to you weekly.</p>

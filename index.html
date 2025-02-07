@@ -42,35 +42,10 @@
             overflow: hidden;
         }
 
-        .floating-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .floating-element {
-            position: absolute;
-            animation: float 15s infinite linear;
-            opacity: 0.6;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translate(0, 0) rotate(0deg);
-            }
-            100% {
-                transform: translate(var(--translateX), var(--translateY)) rotate(360deg);
-            }
-        }
-
         .logo {
             position: absolute;
             top: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 2rem;
             z-index: 3;
             text-decoration: none;
         }
@@ -78,7 +53,7 @@
         .logo-text {
             font-size: 2rem;
             font-weight: 700;
-            color: #FAF7E4;
+            color: #333333;
         }
 
         .hero-content {
@@ -249,14 +224,6 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
-        .bubble {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.1;
-            pointer-events: none;
-            animation: float 20s linear infinite;
-        }
-
         .data-section {
             padding: 4rem 2rem;
             background: #38A763;
@@ -368,6 +335,10 @@
         }
 
         @media (max-width: 768px) {
+            .logo {
+                left: 1rem;
+            }
+
             .hero-content {
                 padding: 1rem;
             }
@@ -471,10 +442,6 @@
 </head>
 <body>
     <section class="hero">
-        <div class="floating-elements">
-            <!-- Floating elements will be added via JavaScript -->
-        </div>
-        
         <a href="/" class="logo">
             <span class="logo-text">nrrtve</span>
         </a>
@@ -544,75 +511,6 @@
     <script>
         AOS.init();
         
-        // Create floating elements
-        const floatingElements = [
-            { type: 'text', content: '📸', size: '40px' },
-            { type: 'text', content: '📱', size: '30px' },
-            { type: 'text', content: '💿', size: '35px' },
-            { type: 'text', content: '📺', size: '45px' },
-            { type: 'text', content: '🎵', size: '30px' },
-            { type: 'shape', background: '#333333', size: '20px' },
-            { type: 'shape', background: '#FAF7E4', size: '25px' },
-            { type: 'shape', background: '#39A663', size: '15px' }
-        ];
-
-        function createFloatingElements() {
-            const container = document.querySelector('.floating-elements');
-            
-            floatingElements.forEach((element, index) => {
-                const div = document.createElement('div');
-                div.className = 'floating-element';
-                
-                if (element.type === 'text') {
-                    div.style.fontSize = element.size;
-                    div.textContent = element.content;
-                } else {
-                    div.style.width = element.size;
-                    div.style.height = element.size;
-                    div.style.background = element.background;
-                    div.style.borderRadius = '50%';
-                }
-
-                // Random initial position
-                div.style.left = `${Math.random() * 90}%`;
-                div.style.top = `${Math.random() * 90}%`;
-
-                // Random translation values
-                const translateX = (Math.random() - 0.5) * 200;
-                const translateY = (Math.random() - 0.5) * 200;
-                div.style.setProperty('--translateX', `${translateX}px`);
-                div.style.setProperty('--translateY', `${translateY}px`);
-
-                // Random animation duration and delay
-                div.style.animationDuration = `${15 + Math.random() * 10}s`;
-                div.style.animationDelay = `${Math.random() * 5}s`;
-
-                container.appendChild(div);
-            });
-        }
-
-        function createBubbles() {
-            const section = document.getElementById('features-section');
-            const colors = ['#39A663', '#333333'];
-            
-            for (let i = 0; i < 15; i++) {
-                const bubble = document.createElement('div');
-                bubble.className = 'bubble';
-                
-                const size = Math.random() * 60 + 20;
-                const color = colors[Math.floor(Math.random() * colors.length)];
-                
-                bubble.style.width = `${size}px`;
-                bubble.style.height = `${size}px`;
-                bubble.style.background = color;
-                bubble.style.left = `${Math.random() * 100}%`;
-                bubble.style.animationDuration = `${Math.random() * 20 + 10}s`;
-                bubble.style.animationDelay = `${Math.random() * 5}s`;
-                
-                section.appendChild(bubble);
-            }
-        }
-
         const phrases = ["No Spin", "Told Right", "Honest Perspectives"];
         let currentIndex = 0;
 
@@ -632,8 +530,6 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            createFloatingElements();
-            createBubbles();
             animateText();
         });
     </script>
